@@ -1,0 +1,28 @@
+
+#Resources:
+
+Phrack #49: http://www.phrack.com/issues/49/6.html 
+Phrack #51: http://www.phrack.com/issues/51/6.html
+
+Covert Channel in TCP/IP protocol stack by Aleksandra Mileva and Boris Panajotov (2000): http://eprints.ugd.edu.mk/10284/1/surveyAMBPselfArc.pdf
+A survey of covert channels and countermeasures in computer network protocols (2007): http://caia.swin.edu.au/cv/szander/publications/szander-ieee-comst07.pdf
+
+Default powershell versions included in Windows OS: https://en.wikipedia.org/wiki/PowerShell
+
+ICMP attacks: http://resources.infosecinstitute.com/icmp-attacks/
+
+#Tools:
+
+Safebreach's Cachetalk paper: https://go.safebreach.com/rs/535-IXZ-934/images/Whitepaper_Perfect_Exfiltration.pdf
+Cachetalk source: https://github.com/SafeBreach-Labs/cachetalk
+
+ICMPTX: https://github.com/jakkarth/icmptx
+ICMP-Shell: http://icmpshell.sourceforge.net/ 
+Covert channel over ICMP: https://www.exploit-db.com/docs/18581.pdf
+
+dns2tcp: http://www.hsc.fr/ressources/outils/dns2tcp/
+dnscapy: https://code.google.com/archive/p/dnscapy/
+Ozyman DNS: https://www.splitbrain.org/blog/2008-11/02-dns_tunneling_made_simple
+
+
+
