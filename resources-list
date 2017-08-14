@@ -11,6 +11,10 @@ Default powershell versions included in Windows OS: https://en.wikipedia.org/wik
 
 ICMP attacks: http://resources.infosecinstitute.com/icmp-attacks/
 
+
+Intel AMT SoL Covert channel: https://blogs.technet.microsoft.com/mmpc/2017/06/07/platinum-continues-to-evolve-find-ways-to-maintain-invisibility/
+
+
 #Tools:
 
 Safebreach's Cachetalk paper: https://go.safebreach.com/rs/535-IXZ-934/images/Whitepaper_Perfect_Exfiltration.pdf
