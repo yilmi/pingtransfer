@@ -28,4 +28,6 @@ gcc pingserver.c -o pingserver
 ```
 
 
+Special thanks to Pedro Laguna for the idea and the follow up !
+Thanks to my team too for their great feedback !
 
