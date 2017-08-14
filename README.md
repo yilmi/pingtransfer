@@ -4,7 +4,7 @@ This is a simple tool to transfer data through a ping covert channel.
 
 Data is injected in the payload part of the ICMP echo packet (see the [Ping RFC Document] for more details):
 
-[![N|Solid](https://networkdirection.net/dl49?display)](https://nodesource.com/products/nsolid)
+[![N](https://networkdirection.net/dl49?display)]
 
 [Ping RFC document]: <https://tools.ietf.org/html/rfc792>
 
@@ -24,7 +24,7 @@ powershell.exe -ExecutionPolicy Bypass -File ping-client.ps1 yourtargetip /path/
 Usage:
 ```
 gcc pingserver.c -o pingserver
-./pingserver
+sudo ./pingserver
 ```
 
 
