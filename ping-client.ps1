@@ -24,7 +24,6 @@
 .NOTES
   Version:        1.0
   Author:         Yassine Ilmi - yassine.at.ilmi.dot.fr
-  Contributor:    Pedro Laguna
   Creation Date:  16/06/2017
   Purpose/Change: Ping simple covert channel
   
