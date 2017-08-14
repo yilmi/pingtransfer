@@ -28,12 +28,11 @@
 #include <netinet/in.h>
 #include <netinet/ip_icmp.h>
 
-void listener(int payloadsize, struct sockaddr_in src_address, struct protoent *proto)
+void listener(struct protoent *proto)
 {
 
     int sd;
     unsigned char buf[1500];
-    payloadsize = payloadsize - 4;
 
     sd = socket(AF_INET, SOCK_RAW, proto->p_proto);
 
@@ -43,21 +42,18 @@ void listener(int payloadsize, struct sockaddr_in src_address, struct protoent *
         exit(0);
     }
 
-
-    //Disables printf buffering so payload is printed directly
+    //Disables printf buffering so payload is printed directly, other solutions for the same problem exist
     setbuf(stdout, NULL);
 
     for (;;)
     {
-
-        int bytes, laddr_len = sizeof(src_address);
-        int i;
+        int bytes = 0;
         bzero(buf, sizeof(buf));
 
-        bytes = recvfrom(sd, buf, sizeof(buf), 0, (struct sockaddr *)&src_address, &laddr_len);
+        bytes = recvfrom(sd, buf, sizeof(buf), 0, NULL, NULL);
         if (bytes > 0)
         {
-            printf("%s", (buf + payloadsize));
+            printf("%s", (buf + 28));
 
         }
         else
@@ -70,39 +66,16 @@ void listener(int payloadsize, struct sockaddr_in src_address, struct protoent *
 
 void usage()
 {
-    printf("Please provide remote ip address\n");
-    printf("usage: pingserver <addr> <payload size>\n");
+    printf("Just run pingserver as root");
     exit(0);
 }
 
-int main(int argc, char *argv[])
+int main()
 {
 
     struct protoent *proto = getprotobyname("ICMP"); // Protocol type
-    struct sockaddr_in addr;
-    int payloadsize;
-    char *argaddress;
 
-    if (argc != 3 || argc < 2)
-    {
-        usage();
-    }
-
-    if (atoi(argv[2]))
-    {
-        payloadsize = atoi(argv[2]);
-    }
-    else
-    {
-        printf("Invalid payload size\n");
-        usage();
-    }
-
-    addr.sin_family = AF_INET;
-    addr.sin_port = 0;
-    addr.sin_addr.s_addr = inet_addr(argv[1]);
-
-    listener(payloadsize, addr, proto);
+    listener(proto);
 
     return 0;
 }
